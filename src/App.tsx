@@ -12,7 +12,7 @@ const App: React.FC = () => {
         </a>
         {'.'}
       </p>
-      <Layer></Layer>
+      <Layer count={1}></Layer>
     </div>
   );
 }

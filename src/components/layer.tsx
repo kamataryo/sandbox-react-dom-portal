@@ -1,10 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-export const Layer: React.FC = () => {
+type Props = {
+  count: number
+}
+
+export const Layer: React.FC<Props> = (props: Props) => {
 
   const containerElem = React.useRef(null)
   const [elem, setElem] = React.useState<HTMLElement>()
+  const {count} = props
 
   const onClick = () => {
     const childElem = document.createElement('div')
@@ -16,9 +21,9 @@ export const Layer: React.FC = () => {
   }
 
   return <div ref={containerElem} style={{padding: '1em', border: '1px solid blue'}}>
-    <p style={{color: 'darkblue'}}>{'This is a '}<strong>{'React'}</strong>{' Layer.'}</p>
+    <p style={{color: 'darkblue'}}>{`This is ${count}th `}<strong>{'React'}</strong>{' Layer.'}</p>
     {elem ?
-      ReactDOM.createPortal(<Layer></Layer>, elem) :
+      ReactDOM.createPortal(<Layer count={count + 1}></Layer>, elem) :
       <button onClick={onClick} disabled={!!containerElem.current}>{'Nest me'}</button>
     }
   </div>
