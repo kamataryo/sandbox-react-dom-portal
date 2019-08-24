@@ -1,6 +1,6 @@
 {
   "name": "sandbox-react-dom-portal",
-  "description": "My sandbox for ReactDOM.Portal.",
+  "description": "My sandbox for ReactDOM.createPortal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
